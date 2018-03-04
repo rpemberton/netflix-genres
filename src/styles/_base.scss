@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $color__gray--dark;
+  color: $color__gray;
+
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+a {
+  color: initial;
+
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+}

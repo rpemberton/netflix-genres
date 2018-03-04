@@ -1,0 +1,29 @@
+.toggle-view {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+
+  @include breakpoint-sm {
+    display: flex;
+  }
+}
+
+.toggle-view__btn {
+  border: none;
+
+  color: $color__gray--light;
+  background: transparent;
+
+  font-size: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.toggle-view__btn--active {
+  color: $color__red;
+}
+
