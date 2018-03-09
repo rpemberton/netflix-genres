@@ -8,7 +8,7 @@ const $ = query => document.querySelector(query);
 class UI {
   constructor(searchGenreData) {
     this.$els = {
-      search: $('#search-input'),
+      search: $('#search'),
       gridBtn: $('#grid-btn'),
       listBtn: $('#list-btn'),
       genreList: $('#genre-list'),
