@@ -101,7 +101,7 @@ ul {
   margin: 0 auto;
   width: 85vw; }
 
-.search__input-wrap {
+.search__form {
   position: relative;
   display: flex;
   border: 4px solid;
