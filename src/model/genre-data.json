@@ -164,12 +164,12 @@
     "name": "Classic Sci-Fi & Fantasy"
   },
   {
-    "id": "46588",
-    "name": "Classic Thrillers"
-  },
-  {
     "id": "46553",
     "name": "Classic TV Shows"
+  },
+  {
+    "id": "46588",
+    "name": "Classic Thrillers"
   },
   {
     "id": "48744",
@@ -212,12 +212,12 @@
     "name": "Crime Dramas"
   },
   {
-    "id": "10499",
-    "name": "Crime Thrillers"
-  },
-  {
     "id": "26146",
     "name": "Crime TV Shows"
+  },
+  {
+    "id": "10499",
+    "name": "Crime Thrillers"
   },
   {
     "id": "9434",
@@ -752,34 +752,6 @@
     "name": "Supernatural Thrillers"
   },
   {
-    "id": "6384",
-    "name": "Tearjerkers"
-  },
-  {
-    "id": "3519",
-    "name": "Teen Comedies"
-  },
-  {
-    "id": "9299",
-    "name": "Teen Dramas"
-  },
-  {
-    "id": "52147",
-    "name": "Teen Screams"
-  },
-  {
-    "id": "60951",
-    "name": "Teen TV Shows"
-  },
-  {
-    "id": "8933",
-    "name": "Thrillers"
-  },
-  {
-    "id": "1159",
-    "name": "Travel & Adventure Documentaries"
-  },
-  {
     "id": "10673",
     "name": "TV Action & Adventure"
   },
@@ -814,6 +786,34 @@
   {
     "id": "83",
     "name": "TV Shows"
+  },
+  {
+    "id": "6384",
+    "name": "Tearjerkers"
+  },
+  {
+    "id": "3519",
+    "name": "Teen Comedies"
+  },
+  {
+    "id": "9299",
+    "name": "Teen Dramas"
+  },
+  {
+    "id": "52147",
+    "name": "Teen Screams"
+  },
+  {
+    "id": "60951",
+    "name": "Teen TV Shows"
+  },
+  {
+    "id": "8933",
+    "name": "Thrillers"
+  },
+  {
+    "id": "1159",
+    "name": "Travel & Adventure Documentaries"
   },
   {
     "id": "9472",
