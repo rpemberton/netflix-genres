@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 
-import scrapedData from './data/genre-data.json';
+import scrapedData from './model/genre-data.json';
 
 import Model from './model/model';
 import View from './view';
