@@ -3,9 +3,11 @@ import staleData from './genre-data.json';
 class Model {
   constructor() {
     this.url = 'whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix';
+    this.genreData = [];
 
     this.getNewData = this.getNewData.bind(this);
-    this.parseResponse = this.parseResponse.bind(this);
+    // this.convertToHtml = this.convertToHtml.bind(this);
+    this.filterData = this.filterData.bind(this);
   }
 
   getStaleData() {
@@ -20,18 +22,20 @@ class Model {
     return fetch(`https://cors-anywhere.herokuapp.com/${this.url}`)
       .then(res => res.text())
       .then(res => {
-        const parsedResponse = this.parseResponse(res);
-        return this.parse(parsedResponse);
+        const htmlData = this.convertToHtml(res);
+        this.genreData = this.convertToModel(htmlData);
+        localStorage.setItem('genres', this.genreData);
+        return this.genreData;
       });
   }
 
-  parseResponse(html) {
+  convertToHtml(html) {
     const div = document.createElement('div');
     div.innerHTML = html;
     return div;
   }
 
-  parse(el) {
+  convertToModel(el) {
     const nodeList = el.querySelectorAll('.articleBody p');
 
     const genres = [];
@@ -54,6 +58,13 @@ class Model {
       }, {});
 
     return Object.values(output).sort((a, b) => a.name > b.name ? 1 : -1);
+  }
+
+  filterData(term) {
+    return this.genreData
+      .filter(({ name }) => (
+        name.toLowerCase().includes(term.trim().toLowerCase())
+      ));
   }
 }
 
