@@ -1,7 +1,5 @@
 import 'babel-polyfill';
 
-import scrapedData from './model/genre-data.json';
-
 import Model from './model/model';
 import View from './view';
 
@@ -12,18 +10,30 @@ class App {
     this.model = new Model();
     this.view = new View(this.searchGenreData);
 
-    this.genreData = scrapedData;
-
-    this.view.displayGenres(this.genreData);
+    this.genreData = [];
 
     this.initialise();
   }
 
   initialise() {
-    this.model.loadData()
+    const localStorageData = this.model.getLocalStorageData();
+
+    if (localStorageData) {
+      this.genreData = localStorageData;
+      console.log('using local storage');
+    } else {
+      this.genreData = this.model.getStaleData();
+      console.log('using stale data');
+    }
+
+    this.view.displayGenres(this.genreData);
+
+    this.model.getNewData()
       .then((res) => {
+        console.log('using new data');
         this.genreData = res;
-        this.view.displayGenres(this.genreData);
+        localStorage.setItem('genres', JSON.stringify(this.genreData));
+        this.view.updateGenres();
       });
   }
 

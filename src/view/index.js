@@ -37,6 +37,10 @@ class View {
     this.$els.genreList.classList[type](className);
   }
 
+  updateGenres() {
+    this.search.onInput();
+  }
+
   displayGenres(data) {
     this.genreList.display(data);
   }

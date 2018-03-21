@@ -1,12 +1,22 @@
+import staleData from './genre-data.json';
+
 class Model {
   constructor() {
     this.url = 'whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix';
 
-    this.loadData = this.loadData.bind(this);
+    this.getNewData = this.getNewData.bind(this);
     this.parseResponse = this.parseResponse.bind(this);
   }
 
-  loadData() {
+  getStaleData() {
+    return staleData;
+  }
+
+  getLocalStorageData() {
+    return JSON.parse(localStorage.getItem('genres'));
+  }
+
+  getNewData() {
     return fetch(`https://cors-anywhere.herokuapp.com/${this.url}`)
       .then(res => res.text())
       .then(res => {
