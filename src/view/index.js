@@ -5,7 +5,7 @@ import GenreList from './components/GenreList';
 
 const $ = query => document.querySelector(query);
 
-class UI {
+class View {
   constructor(searchGenreData) {
     this.$els = {
       search: $('#search'),
@@ -37,6 +37,10 @@ class UI {
     this.$els.genreList.classList[type](className);
   }
 
+  updateGenres() {
+    this.search.onInput();
+  }
+
   displayGenres(data) {
     this.genreList.display(data);
   }
@@ -52,4 +56,4 @@ class UI {
   }
 }
 
-export default UI;
+export default View;
