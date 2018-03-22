@@ -3,19 +3,14 @@ import staleData from './genre-data.json';
 class Model {
   constructor() {
     this.url = 'whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix';
-    this.genreData = staleData;
+    this.data = JSON.parse(localStorage.getItem('genres')) || staleData;
 
-    this.getStaleData = this.getStaleData.bind(this);
     this.getNewData = this.getNewData.bind(this);
     this.filterData = this.filterData.bind(this);
   }
 
-  getStaleData() {
-    return this.genreData;
-  }
-
-  getLocalStorageData() {
-    return JSON.parse(localStorage.getItem('genres'));
+  getData() {
+    return this.data;
   }
 
   getNewData() {
@@ -23,9 +18,9 @@ class Model {
       .then(res => res.text())
       .then(res => {
         const htmlData = this.convertToHtml(res);
-        this.genreData = this.convertToModel(htmlData);
-        localStorage.setItem('genres', this.genreData);
-        return this.genreData;
+        this.data = this.convertToModel(htmlData);
+        localStorage.setItem('genres', this.data);
+        return this.data;
       });
   }
 
@@ -62,7 +57,7 @@ class Model {
 
   filterData(term) {
 
-    return this.genreData
+    return this.data
       .filter(({ name }) => (
         name.toLowerCase().includes(term.trim().toLowerCase())
       ));

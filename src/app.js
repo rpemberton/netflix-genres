@@ -14,9 +14,7 @@ class App {
   }
 
   initialise() {
-    let data = this.model.getLocalStorageData() || this.model.getStaleData();
-
-    this.view.displayGenres(data);
+    this.view.displayGenres(this.model.getData());
 
     this.model.getNewData()
       .then((res) => {
