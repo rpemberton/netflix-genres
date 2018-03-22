@@ -3,7 +3,7 @@ import staleData from './genre-data.json';
 class Model {
   constructor() {
     this.url = 'whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix';
-    this.genreData = [];
+    this.genreData = staleData;
 
     this.getNewData = this.getNewData.bind(this);
     // this.convertToHtml = this.convertToHtml.bind(this);
@@ -11,7 +11,7 @@ class Model {
   }
 
   getStaleData() {
-    return staleData;
+    return this.genreData;
   }
 
   getLocalStorageData() {
@@ -61,6 +61,7 @@ class Model {
   }
 
   filterData(term) {
+
     return this.genreData
       .filter(({ name }) => (
         name.toLowerCase().includes(term.trim().toLowerCase())
