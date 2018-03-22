@@ -5,8 +5,8 @@ class Model {
     this.url = 'whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix';
     this.genreData = staleData;
 
+    this.getStaleData = this.getStaleData.bind(this);
     this.getNewData = this.getNewData.bind(this);
-    // this.convertToHtml = this.convertToHtml.bind(this);
     this.filterData = this.filterData.bind(this);
   }
 
