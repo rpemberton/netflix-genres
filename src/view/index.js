@@ -1,7 +1,7 @@
-import Search from './components/Search';
-import GridBtn from './components/GridBtn';
-import ListBtn from './components/ListBtn';
-import GenreList from './components/GenreList';
+import Search from './components/search';
+import GridBtn from './components/gridBtn';
+import ListBtn from './components/listBtn';
+import GenreList from './components/genreList';
 
 const $ = query => document.querySelector(query);
 

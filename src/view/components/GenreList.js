@@ -6,20 +6,33 @@ class GenreList {
   }
 
   display(genres) {
-    this.$el.innerHTML = this.convertToListItems(genres);
+    this.$el.innerHTML = '';
+
+    const f = document.createDocumentFragment();
+
+    genres.forEach(genre => {
+      f.appendChild(this.createListItem(genre));
+    });
+
+    this.$el.appendChild(f);
   }
 
-  convertToListItems(data) {
-    return data.map(({ id, name }) => `
-      <li class="genres__item">
-        <div class="genres__link-wrap">
-          <a class="genres__link" href="http://www.netflix.com/browse/genre/${id}" target="_blank">
-            ${name}
-          </a>
-        </div>
-      </li>
-    `)
-    .join('');
+  createListItem({ id, name }) {
+    const a = document.createElement('a');
+    a.className = 'genres__link';
+    a.href = `http://www.netflix.com/browse/genre/${id}`;
+    a.target = '_blank';
+    a.textContent = name;
+
+    const div = document.createElement('div');
+    div.className = 'genres__link-wrap';
+    div.appendChild(a);
+
+    const li = document.createElement('li');
+    li.className = 'genres__item';
+    li.appendChild(div);
+
+    return li;
   }
 }
 
