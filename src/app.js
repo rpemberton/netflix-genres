@@ -16,11 +16,11 @@ class App {
   initialise() {
     this.view.displayGenres(this.model.getData());
 
-    this.model.getNewData()
-      .then((res) => {
-        localStorage.setItem('genres', JSON.stringify(res));
-        this.view.updateGenres();
-      });
+    // this.model.getNewData()
+    //   .then((res) => {
+    //     localStorage.setItem('genres', JSON.stringify(res));
+    //     this.view.updateGenres();
+    //   });
   }
 
   searchGenreData(searchText) {
