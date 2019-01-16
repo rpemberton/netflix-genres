@@ -42,6 +42,9 @@ ul {
   max-width: 1200px;
   padding: 20px;
   margin: 0 auto; }
+  @media only screen and (min-width: 800px) {
+    .genres-wrap {
+      width: 85vw; } }
 
 .genres__list {
   display: flex;
