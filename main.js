@@ -11215,14 +11215,13 @@ exports.default = View;
 /***/ }),
 
 /***/ 0:
-/*!*************************************************!*\
-  !*** multi ./src/app.js ./src/styles/main.scss ***!
-  \*************************************************/
+/*!**************************!*\
+  !*** multi ./src/app.js ***!
+  \**************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/robertpemberton/dev/netflix-genres/src/app.js */"./src/app.js");
-module.exports = __webpack_require__(/*! /Users/robertpemberton/dev/netflix-genres/src/styles/main.scss */"./src/styles/main.scss");
+module.exports = __webpack_require__(/*! /Users/robertpemberton/dev/netflix-genres/src/app.js */"./src/app.js");
 
 
 /***/ })
