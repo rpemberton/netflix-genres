@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netflix Genres</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-<link href="main.bundle.css" rel="stylesheet"></head>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="public/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Genres</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link href="main.bundle.css" rel="stylesheet"></head>
 
-<body>
-  <main>
-    <div class="top">
-      <div class="title">
-        <h1 class="title__text">
-          <span class="title__logo">NETFLIX</span> GENRES
+  <body>
+    <main>
+      <header class="header">
+        <h1 class="header__text">
+          <span class="header__logo">NETFLIX</span> GENRES
         </h1>
-      </div>
 
-      <div class="search">
-        <form id="search" class="search__form">
-          <input id="search-input" class="search__input" type="search" placeholder=" Search..." />
-          <div class="search__icon">
-            <i class="fas fa-search"></i>
-          </div>
-        </form>
-      </div>
-    </div>
+        <div id="search" class="search-form">
+          <input
+            id="search-input"
+            class="search-form__input"
+            type="search"
+            placeholder="Search..."
+            autofocus
+          />
+        </div>
+      </header>
 
-    <div class="genres-wrap">
-      <div class="toggle-view">
-        <button id="grid-btn" class="toggle-view__btn toggle-view__btn--active">
-          <i class="fas fa-th"></i>
-        </button>
-        <button id="list-btn" class="toggle-view__btn">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+      <div class="genres-wrap">
+        <div class="toggle">
+          <button id="grid-btn" class="toggle__btn toggle__btn--active">
+            <i class="fas fa-th"></i>
+          </button>
+          <button id="list-btn" class="toggle__btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
 
-      <div class="genres">
-        <ul id="genre-list" class="genres__list"></ul>
+        <div class="genres">
+          <ul id="genre-list" class="genres__list"></ul>
+          <p id="no-results" class="no-results"></p>
+        </div>
       </div>
-
-      <p id="no-results" class="no-results"></p>
-    </div>
-  </main>
-<script type="text/javascript" src="main.bundle.js"></script></body>
+    </main>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
 </html>
