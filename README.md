@@ -1,15 +1,17 @@
-# Netflix genre search
+# Netflix genres scrape and search
 
-Live demo: <https://rpemberton.github.io/netflix-genres>
+Live demo: https://rpemberton.github.io/netflix-genres
 
-This is an app that uses a scraped list of Netflix genres from [this webpage](http://whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix) and allows you to search and see immediately filtered results/links.
+![screenshot](docs/screenshot.png)
 
-* The scrape functon is [here](https://github.com/rpemberton/netflix-genres/tree/master/src/model/scrape.js)
-* The output of the scrape function is [here](https://github.com/rpemberton/netflix-genres/tree/master/src/model/genre-data.json)
+This is an app that scrapes Netflix genre data from [this webpage](https://whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix) and makes it searchable.
 
-### What's going on with this project?
-* No JS frameworks - just good old vanilla
-* No CSS frameworks - just trusty old SCSS
+* To test out the scrape function, [this](src/model/scrape.js) can be pasted into the browser console when on the [whatsonnetflix](https://whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix) page.
+* An example of the output is [here](src/model/genres.json).
+
+## About the code
+* No JS frameworks
+* No CSS frameworks
 * Focus on functional programming
 * Focus on separation of concerns
 * Webpack and Babel

@@ -1,17 +1,12 @@
-import staleData from './genre-data.json';
+import staleData from './genres.json';
 
 class Model {
   constructor() {
     this.url = 'whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix';
-    // this.data = JSON.parse(localStorage.getItem('genres')) || staleData;
-    this.data = staleData;
+    this.data = JSON.parse(localStorage.getItem('genres')) || staleData;
 
     this.getNewData = this.getNewData.bind(this);
     this.filterData = this.filterData.bind(this);
-  }
-
-  getData() {
-    return this.data;
   }
 
   getNewData() {
@@ -20,29 +15,36 @@ class Model {
       .then(res => {
         const htmlData = this.convertToHtml(res);
         this.data = this.convertToModel(htmlData);
-        localStorage.setItem('genres', this.data);
         return this.data;
       });
   }
 
   convertToHtml(html) {
     const div = document.createElement('div');
-    div.innerHTML = html;
+
+    div.innerHTML = html
+      .replace(/['"]http.+?['"]/g, '""')
+      .replace(/src=".+?"/g, 'src=""');
+
     return div;
   }
 
   convertToModel(el) {
-    const nodeList = el.querySelectorAll('.articleBody p');
+    const nodeList = el.querySelectorAll('.entry-inner p');
 
     const genres = [];
 
     nodeList.forEach(node => {
       // account for two genres in same <p> tag
-      const separatedGenres = node.textContent.split(/\n/);
+      const separatedGenres = node.textContent.split(/\s+(?=\d+ = )/);
 
-      separatedGenres.forEach(genre => {
-        genres.push(genre);
-      });
+      if (separatedGenres.length) {
+        separatedGenres.forEach(genre => {
+          genres.push(genre);
+        })
+      } else {
+        genres.push(node.textContent);
+      }
     });
 
     const output = genres
@@ -57,7 +59,6 @@ class Model {
   }
 
   filterData(term) {
-
     return this.data
       .filter(({ name }) => (
         name.toLowerCase().includes(term.trim().toLowerCase())

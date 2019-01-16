@@ -1,0 +1,23 @@
+.toggle {
+  display: none;
+
+  padding-bottom: 20px;
+
+  text-align: center;
+
+  @include breakpoint-md {
+    display: block;
+  }
+}
+
+.toggle__btn {
+  background: transparent;
+  border: none;
+
+  color: $color-seconary--light;
+  font-size: 30px;
+}
+
+.toggle__btn--active {
+  color: $color-primary;
+}

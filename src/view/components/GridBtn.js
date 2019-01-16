@@ -11,8 +11,8 @@ class GridBtn {
   }
 
   handleClick() {
-    this.$el.classList.add('toggle-view__btn--active');
-    this.updateListBtnClass('remove', 'toggle-view__btn--active');
+    this.$el.classList.add('toggle__btn--active');
+    this.updateListBtnClass('remove', 'toggle__btn--active');
     this.updateGenreListClass('remove', 'list-view');
   }
 }

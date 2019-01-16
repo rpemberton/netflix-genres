@@ -12,7 +12,7 @@ class View {
       gridBtn: $('#grid-btn'),
       listBtn: $('#list-btn'),
       genreList: $('#genre-list'),
-      noResults: $('#no-results')
+      noResults: $('#genres__no-results')
     };
 
     this.updateGridBtnClass = this.updateGridBtnClass.bind(this);
@@ -48,11 +48,11 @@ class View {
   updateNoResultsMessage(results, searchText) {
     if (!results) {
       this.$els.noResults.innerHTML = `No results found for <strong>${searchText}</strong>`;
-      this.$els.noResults.classList.add('no-results--show');
+      this.$els.noResults.classList.add('genres__no-results--show');
       return;
     }
 
-    this.$els.noResults.classList.remove('no-results--show');
+    this.$els.noResults.classList.remove('genres__no-results--show');
   }
 }
 

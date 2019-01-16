@@ -1,0 +1,19 @@
+.header {
+  padding: 20px;
+
+  background: white;
+
+  text-align: center;
+}
+
+.header__text {
+  font-size: 58px;
+
+  @include breakpoint-md {
+    font-size: 72px;
+  }
+}
+
+.header__logo {
+  color: $color-primary;
+}

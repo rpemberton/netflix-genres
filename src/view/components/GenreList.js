@@ -20,17 +20,13 @@ class GenreList {
   createListItem({ id, name }) {
     const a = document.createElement('a');
     a.className = 'genres__link';
-    a.href = `http://www.netflix.com/browse/genre/${id}`;
+    a.href = `https://www.netflix.com/browse/genre/${id}`;
     a.target = '_blank';
     a.textContent = name;
 
-    const div = document.createElement('div');
-    div.className = 'genres__link-wrap';
-    div.appendChild(a);
-
     const li = document.createElement('li');
     li.className = 'genres__item';
-    li.appendChild(div);
+    li.appendChild(a);
 
     return li;
   }

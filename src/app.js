@@ -1,7 +1,11 @@
 import 'babel-polyfill';
 
+import '../public/favicon.png';
+
 import Model from './model/model';
 import View from './view';
+
+import './styles/main.scss';
 
 class App {
   constructor() {
@@ -10,17 +14,19 @@ class App {
     this.model = new Model();
     this.view = new View(this.searchGenreData);
 
-    this.initialise();
+    this.init();
   }
 
-  initialise() {
-    this.view.displayGenres(this.model.getData());
+  init() {
+    this.view.displayGenres(this.model.data);
 
-    // this.model.getNewData()
-    //   .then((res) => {
-    //     localStorage.setItem('genres', JSON.stringify(res));
-    //     this.view.updateGenres();
-    //   });
+    this.model.getNewData()
+      .then((res) => {
+        if (res.length) {
+          localStorage.setItem('genres', JSON.stringify(res));
+          this.view.updateGenres();
+        }
+      });
   }
 
   searchGenreData(searchText) {
