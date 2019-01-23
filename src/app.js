@@ -9,10 +9,10 @@ import './styles/main.scss';
 
 class App {
   constructor() {
-    this.searchGenreData = this.searchGenreData.bind(this);
+    this.searchGenres = this.searchGenres.bind(this);
 
     this.model = new Model();
-    this.view = new View(this.searchGenreData);
+    this.view = new View(this.searchGenres);
 
     this.init();
   }
@@ -21,19 +21,16 @@ class App {
     this.view.displayGenres(this.model.data);
 
     this.model.getNewData()
-      .then((res) => {
-        if (res.length) {
-          localStorage.setItem('genres', JSON.stringify(res));
-          this.view.updateGenres();
-        }
+      .then(() => {
+        this.view.updateGenres();
       });
   }
 
-  searchGenreData(searchText) {
-    const searchResults = this.model.filterData(searchText);
+  searchGenres(searchTerm) {
+    const filteredGenres = this.model.filterData(searchTerm);
 
-    this.view.displayGenres(searchResults);
-    this.view.updateNoResultsMessage(searchResults.length, searchText);
+    this.view.displayGenres(filteredGenres);
+    this.view.updateNoResultsMessage(filteredGenres.length, searchTerm);
   }
 }
 

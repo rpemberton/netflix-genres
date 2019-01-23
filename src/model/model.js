@@ -14,8 +14,11 @@ class Model {
       .then(res => res.text())
       .then(res => {
         const htmlData = this.convertToHtml(res);
-        this.data = this.convertToModel(htmlData);
-        return this.data;
+        const genres = this.convertToModel(htmlData);
+        if (genres.length) {
+          this.data = genres;
+          localStorage.setItem('genres', JSON.stringify(genres));
+        }
       });
   }
 

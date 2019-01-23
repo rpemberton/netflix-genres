@@ -1,24 +1,17 @@
 class Search {
-  constructor($el, handleInput) {
+  constructor($el, searchGenres) {
     this.$el = $el;
     this.$input = this.$el.querySelector('#search-input');
 
-    this.handleInput = handleInput;
+    this.searchGenres = searchGenres;
 
     this.onInput = this.onInput.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
 
-    this.$el.addEventListener('submit', this.onSubmit)
     this.$input.addEventListener('input', this.onInput);
   }
 
   onInput() {
-    this.handleInput(this.$input.value);
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    this.$input.blur();
+    this.searchGenres(this.$input.value);
   }
 }
 

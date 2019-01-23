@@ -1,5 +1,5 @@
-class GridBtn {
-  constructor($el, updateGenreListClass, updateListBtnClass) {
+class BtnGrid {
+  constructor($el, updateGenreListClass, updateBtnListClass) {
     this.$el = $el;
 
     this.handleClick = this.handleClick.bind(this);
@@ -7,14 +7,14 @@ class GridBtn {
     this.$el.addEventListener('click', this.handleClick);
 
     this.updateGenreListClass = updateGenreListClass;
-    this.updateListBtnClass = updateListBtnClass;
+    this.updateBtnListClass = updateBtnListClass;
   }
 
   handleClick() {
     this.$el.classList.add('toggle__btn--active');
-    this.updateListBtnClass('remove', 'toggle__btn--active');
+    this.updateBtnListClass('remove', 'toggle__btn--active');
     this.updateGenreListClass('remove', 'list-view');
   }
 }
 
-export default GridBtn;
+export default BtnGrid;
