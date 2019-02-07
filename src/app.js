@@ -23,7 +23,6 @@ class App {
     this.model.getNewData()
       .then((res) => {
         if (res.length) {
-          localStorage.setItem('genres', JSON.stringify(res));
           this.view.updateGenres();
         }
       });

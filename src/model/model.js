@@ -3,7 +3,7 @@ import staleData from './genres.json';
 class Model {
   constructor() {
     this.url = 'whatsonnetflix.com/netflix-hacks/the-netflix-id-bible-every-category-on-netflix';
-    this.data = JSON.parse(localStorage.getItem('genres')) || staleData;
+    this.data = staleData;
 
     this.getNewData = this.getNewData.bind(this);
     this.filterData = this.filterData.bind(this);
