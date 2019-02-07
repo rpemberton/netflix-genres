@@ -22,7 +22,7 @@ class App {
 
     this.model.getNewData()
       .then((res) => {
-        if (res.length) {
+        if (res && res.length) {
           this.view.updateGenres();
         }
       });
