@@ -11,11 +11,19 @@ class Model {
 
   getNewData() {
     return fetch(`https://cors-anywhere.herokuapp.com/${this.url}`)
-      .then(res => res.text())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Unable to fetch data');
+        }
+        res.text()
+      })
       .then(res => {
         const htmlData = this.convertToHtml(res);
         this.data = this.convertToModel(htmlData);
         return this.data;
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 
